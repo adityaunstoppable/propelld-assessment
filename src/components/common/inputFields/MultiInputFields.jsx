@@ -30,13 +30,17 @@ const MultiInputField = ({
   }, [onChange]);
 
   const handleInputChange = (e, index) => {
-    const { value } = e.target;
-    if (value.length > 1) return; // Only allow a single character
-
+    let { value } = e.target;
+  
+    if (value.length > 1) return; // only one character allowed
+  
+    // Check if the typed value is a digit (0-9)
+    if (value && (value < "0" || value > "9")) return; // if not a number, ignore
+  
     const newValues = [...values];
     newValues[index] = value;
     updateValues(newValues);
-
+  
     if (value && index < totalFields - 1) {
       inputRefs.current[index + 1]?.focus();
     }
