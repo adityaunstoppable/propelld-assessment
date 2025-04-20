@@ -76,7 +76,7 @@ const ViewLoanApplicationForm = ({ loanApplicationForm }) => {
       {/* Actions Buttons */}
       <div className="flex mt-8 justify-around">
         <CancelButton label='Delete Application' customClassName='hover:bg-red-500' actionHandler={handleDelete} />
-        <SuccessButton label='Edit Application' customClassName='hover:bg-green-300' actionHandler={handleEdit} />
+        <SuccessButton label='Edit Application' customClassName='hover:bg-green-400' actionHandler={handleEdit} />
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { DASHBOARD, LOGIN } from "../../../utils/constants/routes";
 import { authenticateAndLoginUser } from "../../../redux/slices/authSlice";
 import { BG_STYLE_LOGIN } from "../../../utils/constants/styles";
-import { showErrorToast, showSuccessToast } from "../../../redux/slices/toastSlice";
+import { showErrorToast, showInfoToast, showSuccessToast } from "../../../redux/slices/toastSlice";
 
 const OTP = () => {
   const [otp, setOtp] = useState("000000");
@@ -35,6 +35,7 @@ const OTP = () => {
       dispatch(showSuccessToast("Logged in successfully!"))
     } else {
       dispatch(showErrorToast("OTP Unverified."))
+      dispatch(showInfoToast("Use 123456 for OTP."))
     }
   };
 
@@ -73,6 +74,7 @@ const OTP = () => {
         <SuccessButton
           label="Verify OTP"
           type="submit"
+          disabled={otp.length !== 6}
           actionHandler={handleSubmit}
           customClassName="w-full bg-green-800 hover:bg-green-900 text-white"
         />
