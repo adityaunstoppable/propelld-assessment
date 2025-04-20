@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   APPLICATION_FORM,
   DASHBOARD,
@@ -18,7 +18,18 @@ import ToastComponent from "./components/common/toast/ToastComponent";
 
 const App = () => {
   const { isLoggedIn } = useSelector((state) => state.auth);
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (location.pathname === ROOT) {
+      if (isLoggedIn) {
+        navigate(DASHBOARD, { replace: true });
+      } else {
+        navigate(LOGIN, { replace: true });
+      }
+    }
+  }, [isLoggedIn, location.pathname, navigate]);
   return (
     <div className="w-full">
       {/* conditional rendering of navbar, based on authentication */}

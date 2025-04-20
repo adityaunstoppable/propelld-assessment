@@ -11,7 +11,7 @@ describe('TextInput Component', () => {
     expect(labelElement).toBeInTheDocument();
   });
 
-//   this is a test to check if actionHandler function is getting called on every key typed.
+// this is a test to check if actionHandler function is getting called on every key typed.
   test('calls changeHandler when typing', () => {
     const handleChange = jest.fn();
     render(<TextInput label="Name" value="" changeHandler={handleChange} />);
