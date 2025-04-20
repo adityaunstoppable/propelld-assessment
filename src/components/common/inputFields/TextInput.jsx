@@ -2,7 +2,7 @@ import React from "react";
 
 const TextInput = ({
   label = "",
-  placeholder = "",
+  placeholder = "Enter",
   changeHandler,
   value = "",
   customClassName = "",
