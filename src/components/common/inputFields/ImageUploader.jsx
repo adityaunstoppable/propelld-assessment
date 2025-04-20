@@ -1,5 +1,5 @@
 import React from "react";
-
+//  basic image uploader field, have similar design as of othere input fields, just saving the file name.
 const ImageUploader = ({
   label = "",
   changeHandler,

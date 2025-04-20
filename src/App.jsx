@@ -21,6 +21,7 @@ const App = () => {
 
   return (
     <div className="w-full">
+      {/* conditional rendering of navbar, based on authentication */}
       {isLoggedIn && <Navbar />}
       <Outlet />
       <ToastComponent />
@@ -28,6 +29,7 @@ const App = () => {
   );
 };
 
+// app routers -> 
 export const appRouter = createBrowserRouter([
   {
     path: ROOT,
@@ -35,6 +37,7 @@ export const appRouter = createBrowserRouter([
     children: [
       { path: LOGIN, element: <Login /> },
       { path: OTP_PATH, element: <OTP /> },
+      // using protected routes to render dashboard and application so that if the user is not logged in they cannot access these routes.
       { path: DASHBOARD, element: <ProtectedRoute><Dashboard /></ProtectedRoute> },
       { path: APPLICATION_FORM, element:<ProtectedRoute> <ApplicationForm /></ProtectedRoute> },
     ],

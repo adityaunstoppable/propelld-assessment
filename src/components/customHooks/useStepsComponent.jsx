@@ -1,3 +1,4 @@
+//  this is a custom hook to render the step form based on currentStep .
 import React from 'react'
 import Step1 from '../dashboard/applicationForm/steps/Step1';
 import Step2 from '../dashboard/applicationForm/steps/Step2';

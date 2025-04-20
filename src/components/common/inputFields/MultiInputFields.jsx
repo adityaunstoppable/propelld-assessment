@@ -1,3 +1,5 @@
+//  this component has the most complex code in whole webapp , 
+// it has the design and UX similar to what we have in big companies like swiggy, zomato.
 import React, { useRef, useState, useEffect, useCallback } from "react";
 
 const MultiInputField = ({
@@ -11,12 +13,10 @@ const MultiInputField = ({
 
   const inputRefs = useRef([]);
 
-  // Update values if defaultValue or totalFields change
   useEffect(() => {
     setValues(Array.from({ length: totalFields }, (_, idx) => defaultValue[idx] || ""));
   }, [defaultValue, totalFields]);
 
-  // Focus the first empty input
   useEffect(() => {
     const firstEmptyIndex = values.findIndex((value) => value === "");
     if (firstEmptyIndex !== -1 && inputRefs.current[firstEmptyIndex]) {
@@ -31,7 +31,7 @@ const MultiInputField = ({
 
   const handleInputChange = (e, index) => {
     const { value } = e.target;
-    if (!/^\d?$/.test(value)) return; // Only allow a single digit
+    if (value.length > 1) return; // Only allow a single character
 
     const newValues = [...values];
     newValues[index] = value;
@@ -64,7 +64,7 @@ const MultiInputField = ({
 
   const handlePaste = (e) => {
     e.preventDefault();
-    const pastedText = e.clipboardData.getData("Text").replace(/\D/g, "").slice(0, totalFields);
+    const pastedText = e.clipboardData.getData("Text").slice(0, totalFields);
 
     const newValues = Array.from({ length: totalFields }, (_, idx) => pastedText[idx] || "");
     updateValues(newValues);
@@ -81,7 +81,6 @@ const MultiInputField = ({
           <input
             key={idx}
             type="text"
-            inputMode="numeric"
             maxLength="1"
             value={value}
             onChange={(e) => handleInputChange(e, idx)}

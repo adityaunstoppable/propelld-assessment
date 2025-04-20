@@ -15,6 +15,8 @@ const ApplicationForm = () => {
   const {stepValidation, formData} = useSelector((state) => state.dashboard);
   const navigate = useNavigate();
 
+//   this function is handling next step and it is checking if the step is validated.
+// if the step is validated it will set the currentStep to (currentStep + 1) , meaning, the next step.
   const handleNextStep = () => {
     const currentStepKey = `step${currentStep}`;
     if (stepValidation[currentStepKey]) {
@@ -29,6 +31,7 @@ const ApplicationForm = () => {
     setCurrentStep((prev) => prev - 1);
   };
 
+//   this function is simply submitting the form and taking the user back to dashboard.
   const handleSubmit = () => {
     if(formData){
         dispatch(addFormData(formData))
@@ -38,14 +41,15 @@ const ApplicationForm = () => {
     }
   };
 
-  // Use the custom hook to render the step based on currentStep
+  // Used the custom hook to render the step based on currentStep
   const renderStep = useStepsComponent(currentStep);
 
   return (
-    <div className="application-form">
+    <div>
       <StepsProgressBar steps={STEP_NAMES} activeStep={currentStep} />
       {renderStep}
 
+        {/* added simple class for footer so that it appeaers at the bottom of page */}
       <div className="absolute right-10 bottom-10">
         <FormFooter
           currentStep={currentStep}

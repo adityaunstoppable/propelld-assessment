@@ -1,3 +1,4 @@
+// it is a HOC I used to render Dashboard and Application Form routes. If the user is not Logged in then they cannot access these routes.
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 

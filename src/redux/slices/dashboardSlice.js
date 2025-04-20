@@ -1,3 +1,6 @@
+// this is most used slice in the webapp and it performs all the main functionalities in our webapp.
+// also written some extra reducers that can be used to scale the webapp
+// all reducers have the understandable naming convention so that any developer can know what each reducer is doing.
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

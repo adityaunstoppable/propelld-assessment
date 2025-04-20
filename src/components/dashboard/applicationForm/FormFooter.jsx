@@ -3,6 +3,9 @@ import DefaultButton from "../../common/buttons/DefaultButton";
 import SuccessButton from "../../common/buttons/SuccessButton";
 import { STEPS_COUNT } from "../../../utils/constants/applicationForm";
 
+// this is a footer that is handling next and previous steps dynamically.
+// we can scale the webapp with any numbere of steps and next and previous will be taken care here. (functionalities are defined in ApplicationForm.jsx)
+
 const FormFooter = ({ handleSubmit, currentStep, handleNextStep, handlePrevStep, isStepValid }) => {
   return (
     <div className="">

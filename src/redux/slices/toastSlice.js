@@ -1,3 +1,4 @@
+// created toast slice to avoid using local variables for toasts.
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 

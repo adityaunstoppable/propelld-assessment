@@ -7,6 +7,9 @@ import { APPLICATION_FORM } from '../../../utils/constants/routes';
 import CancelButton from '../../common/buttons/CancelButton';
 import { showSuccessToast } from '../../../redux/slices/toastSlice';
 
+//  Added a Form section component (could have been added as a separatee component in a separate file) but 
+//  added here just to show that we can also make multiple components in one file.
+
 const FormSection = ({ title, data }) => {
   return (
     <div className="mb-6">
@@ -24,7 +27,9 @@ const FormSection = ({ title, data }) => {
     </div>
   );
 };
+
 const ViewLoanApplicationForm = ({ loanApplicationForm }) => {
+  // getting all the data of steps from props.
   const { step1, step2, step3 } = loanApplicationForm;
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,13 +66,14 @@ const ViewLoanApplicationForm = ({ loanApplicationForm }) => {
     <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-semibold text-center text-gray-800 mb-5">Loan Application</h2>
 
+      {/* using section component so that code can be resusable */}
       <FormSection title="Step 1: Personal Information" data={personalInfo} />
       <FormSection title="Step 2: Financial Information" data={financialInfo} />
       <FormSection title="Step 3: Institute Information" data={instituteInfo} />
 
       <h2 className="text-lg bg-green-100 p-2 px-5 rounded-2xl text-left text-gray-700 mb-5">Status: Under Review</h2>
 
-      {/* Action Button */}
+      {/* Actions Buttons */}
       <div className="flex mt-8 justify-around">
         <CancelButton label='Delete Application' customClassName='hover:bg-red-500' actionHandler={handleDelete} />
         <SuccessButton label='Edit Application' customClassName='hover:bg-green-300' actionHandler={handleEdit} />

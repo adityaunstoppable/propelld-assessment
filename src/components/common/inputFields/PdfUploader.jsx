@@ -1,5 +1,5 @@
 import React from "react";
-
+// Implemented a simple pdf uploader , not saving the pdf anywhere in the webapp , just saving the name of file.
 const PdfUploader = ({
   label = "",
   changeHandler,

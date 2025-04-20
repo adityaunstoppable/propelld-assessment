@@ -17,6 +17,7 @@ const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  // this function is just geetting the values of phoneNumber and name if they are saved.
   const hydrateLoginDetails = () => {
     const {userName = "", phoneNumber = ""} = userDetailsFromStore;
     console.log("phoneNumber", phoneNumber)
@@ -34,6 +35,7 @@ const Login = () => {
     setPhoneNumber(value);
   };
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if(phoneNumber && name){
@@ -41,7 +43,7 @@ const Login = () => {
       navigate(OTP_PATH)
       dispatch(showSuccessToast(`OTP sent to ${phoneNumber}`))
     }else{
-      //show toastify error
+      //showing toastify error
       dispatch(showErrorToast("Wrong details Entered!"));
 
     }

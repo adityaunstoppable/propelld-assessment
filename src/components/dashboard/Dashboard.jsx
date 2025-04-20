@@ -8,7 +8,6 @@ import ViewLoanApplicationForm from "./applicationForm/ViewLoanApplicationForm";
 const Dashboard = () => {
   //extracting the formData state from redux store.
   const formState = useSelector((state) => state.dashboard);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   //destructuring formData and isEditing from formState

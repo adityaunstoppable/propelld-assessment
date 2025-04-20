@@ -19,6 +19,7 @@ const OTP = () => {
     setOtp(value);
   };
 
+  // this is simply submitting the otp and showing notifications.
   const handleSubmit = (e) => {
     e.preventDefault();
     const isOtpValidated = validateOTP(otp);
@@ -45,7 +46,6 @@ const OTP = () => {
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Enter OTP</h2>
 
-        {/* OTP input field */}
         <div className="mb-8">
           <label className="block mb-2 text-gray-700 text-center">
             We have sent a 6-digit code to your phone:{" "}
@@ -61,7 +61,7 @@ const OTP = () => {
             </span>{" "}
             to edit your phone number.
           </label>
-
+        {/* this is where I am using multifield to enter the otp , same multifield is being used to enter the phone number. */}
           <MultiInputField
             totalFields={6}
             onChange={handleOtpChange}
@@ -70,7 +70,6 @@ const OTP = () => {
           />
         </div>
 
-        {/* Submit button */}
         <SuccessButton
           label="Verify OTP"
           type="submit"

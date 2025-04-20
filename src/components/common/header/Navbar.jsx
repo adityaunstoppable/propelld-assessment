@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { LOGIN } from '../../../utils/constants/routes';
 import { showSuccessToast } from '../../../redux/slices/toastSlice';
 
+// this is a basic navbar with logout button .
+
 const Navbar = () => {
 
   const dispatch = useDispatch();

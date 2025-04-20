@@ -1,3 +1,5 @@
+// authentication slice - it is a mock authentication adder slice.
+// the reducers are easy to understand and scale.
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
